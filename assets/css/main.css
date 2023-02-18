@@ -1,0 +1,297 @@
+@import url('https://fonts.googleapis.com/css2?family=Clicker+Script&family=Cairo:wght@600&display=swap&family=Poppins&family=Mynerve&display=swap&family=Sevillana&family=Dosis:wght@200;300;400;500;600;700&display=swap');
+
+
+/***
+** --------------------- Custom Scroll css ---------------------
+****/
+::-webkit-scrollbar {
+    width: 10px;
+}
+::-webkit-scrollbar-track {
+    background-color: var(--bg-black-900);
+}
+::-webkit-scrollbar-thumb {
+    background: var(--skin-color);
+    border-radius: 25px;
+}
+/***
+** --------------------- scroll-progress Css ---------------------
+****/
+#scroll-progress {
+    position: fixed;
+    top: 0;
+    width: 0%;
+    height: 4px;
+    background: var(--skin-color);
+    z-index: 10000;
+}
+
+:root {
+    --bg-black-900:#151515;
+    --bg-black-100: #222222;
+    --bg-black-50: #393939;
+    --text-black-900: #ffffff;
+    --text-black-700: #e9e9e9;
+}
+body.light{
+    --bg-black-900: #f2f2fc;
+    --bg-black-100: #fdf9ff;
+    --bg-black-50: #e8dfec;
+    --text-black-900: #302e4d;
+    --text-black-700: #504e70;
+}
+body{
+    line-height: 1.5;
+    font-size: 16px;
+    font-family: 'Poppins' sans-serif;
+}
+*{
+    margin: 0;
+    padding: 0;
+    outline: none;
+    text-decoration: none;
+    box-sizing: border-box;
+}
+::before, ::after{
+    box-sizing: border-box;
+}
+hr{
+    border-style: dotted none none;
+    border-width: 10px;
+    border-color: var(--skin-color);
+    width: 25%;
+    margin-bottom: 10px;
+    margin-top: 10px;
+    margin: auto;
+}
+.heading{
+    font-family: 'Cairo', sans-serif;
+    font-weight: 600;
+}
+
+
+.arrow-container {
+    animation: bounce 1250ms infinite cubic-bezier(0.445, 0.05, 0.55, 0.95);
+  }
+
+  @keyframes bounce 
+  {
+    50% {
+        transform: translateX(-30px);
+      }
+  }
+
+  .arrow-container .arrow-down{
+    display: none;
+  }
+
+  
+  .arrow-container1 {
+    animation: bounce1 1250ms infinite cubic-bezier(0.445, 0.05, 0.55, 0.95);
+  }
+  @keyframes bounce1 {
+  50% {
+      transform: translateX(30px);
+    }
+  }
+
+  .arrow-container1 .arrow-up{
+    display: none;
+  }
+
+/***
+ ** --------------------- loader Css ---------------------
+ ****/
+ .loader-wrapper {
+    --line-width: 5px;
+    --curtain-color: #f1faee;
+    position:fixed;
+    top:0;
+    left:0;
+    width:100%;
+    height:100%;
+    z-index:1000;
+}
+.loader {
+    display:block;
+    position: relative;
+    top:50%;
+    left:50%;
+    /*   transform: translate(-50%, -50%); */
+    width:150px;
+    height:150px;
+    margin:-75px 0 0 -75px;
+    border:var(--line-width) solid transparent;
+    border-top-color: var(--skin-color);
+    border-radius:100%;
+    -webkit-animation: spin 2s linear infinite;
+    animation: spin 2s linear infinite;
+    z-index:1001;
+}
+.loader:before {
+    content:"";
+    position: absolute;
+    top:4px;
+    left:4px;
+    right:4px;
+    bottom:4px;
+    border:var(--line-width) solid transparent;
+    border-top-color: var(--skin-color);
+    border-radius:100%;
+    -webkit-animation: spin 3s linear infinite;
+    animation: spin 3s linear infinite;
+}
+.loader:after {
+    content:"";
+    position: absolute;
+    top:14px;
+    left:14px;
+    right:14px;
+    bottom:14px;
+    border:var(--line-width) solid transparent;
+    border-top-color: var(--skin-color);
+    border-radius:100%;
+    -webkit-animation: spin 1.5s linear infinite;
+    animation: spin 1.5s linear infinite;
+}
+@-webkit-keyframes spin {
+    0%   {
+        -webkit-transform: rotate(0deg);
+        -ms-transform: rotate(0deg);
+        transform: rotate(0deg);
+    }
+    100% {
+        -webkit-transform: rotate(360deg);
+        -ms-transform: rotate(360deg);
+        transform: rotate(360deg);
+    }
+}
+@keyframes spin {
+    0%   {
+        -webkit-transform: rotate(0deg);
+        -ms-transform: rotate(0deg);
+        transform: rotate(0deg);
+    }
+    100% {
+        -webkit-transform: rotate(360deg);
+        -ms-transform: rotate(360deg);
+        transform: rotate(360deg);
+    }
+}
+.loader-wrapper .loader-section {
+    position:fixed;
+    top:0;
+    background:var(--bg-black-900);
+    width:51%;
+    height:100%;
+    z-index:1000;
+}
+.loader-wrapper .loader-section.section-left {
+    left:0
+}
+.loader-wrapper .loader-section.section-right {
+    right:0;
+}
+/* Loaded Styles */
+.loaded .loader-wrapper .loader-section.section-left {
+    transform: translateX(-100%);
+    transition: all 0.7s 0.3s cubic-bezier(0.645,0.045,0.355,1.000);
+}
+.loaded .loader-wrapper .loader-section.section-right {
+    transform: translateX(100%);
+    transition: all 0.7s 0.3s cubic-bezier(0.645,0.045,0.355,1.000);
+}
+.loaded .loader {
+    opacity: 0;
+    transition: all 0.3s ease-out;
+}
+.loaded .loader-wrapper {
+    visibility: hidden;
+    transform:translateY(-100%);
+    transition: all .3s 1s ease-out;
+}
+
+
+@media(width <= 460px) and (width > 280px)
+{   
+    .arrow-container .arrow-right{
+        display: none;
+    }
+    .arrow-container1 .arrow-left{
+        display: none;
+    }
+    .arrow-container .arrow-down{
+        display: block;
+    }
+    .arrow-container1 .arrow-up{
+        display: block;
+    }
+
+    @keyframes bounce {
+    50% {
+        transform: translateY(-30px);
+      }
+  }
+
+  @keyframes bounce1 {
+    50% {
+        transform: translateY(30px);
+      }
+  }
+
+}
+@media(width <= 280px)
+{   
+    .arrow-container .arrow-right{
+        display: none;
+    }
+    .arrow-container1 .arrow-left{
+        display: none;
+    }
+
+    .arrow-container .arrow-down{
+        display: block;
+    }
+    .arrow-container1 .arrow-up{
+        display: block;
+    }
+
+    @keyframes bounce {
+        50% {
+            transform: translateY(-30px);
+          }
+      }
+
+      @keyframes bounce1 {
+        50% {
+            transform: translateY(30px);
+          }
+      }
+}
+@media(max-height: 30rem){
+    .arrow-container .arrow-right{
+        display: none;
+    }
+    .arrow-container1 .arrow-left{
+        display: none;
+    }   
+
+    .arrow-container .arrow-down{
+        display: block;
+    }
+    .arrow-container1 .arrow-up{
+        display: block;
+    }
+
+    @keyframes bounce {
+        50% {
+            transform: translateY(-30px);
+          }
+      }
+
+      @keyframes bounce1 {
+        50% {
+            transform: translateY(30px);
+          }
+      }
+}
